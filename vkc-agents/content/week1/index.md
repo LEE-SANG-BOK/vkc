@@ -1,0 +1,37 @@
+# Week 1 Index (Day1–Day7)
+
+- Day1 (E‑7 Checklist)
+  - SRT: content/week1/day1_subtitles_kr_vi.srt
+  - CSV: content/week1/day1_cardnews_canva.csv
+  - Captions: content/week1/day1_captions_kr_vi.md
+  - Checklist: content/week1/day1_publish_checklist.md
+- Day2 (D‑2 Roadmap)
+  - SRT: content/week1/day2_subtitles_kr_vi.srt
+  - CSV: content/week1/day2_cardnews_canva.csv
+  - Captions: content/week1/day2_captions_kr_vi.md
+  - Checklist: content/week1/day2_publish_checklist.md
+- Day3 (Living/Part‑time)
+  - SRT: content/week1/day3_subtitles_kr_vi.srt
+  - CSV: content/week1/day3_cardnews_canva.csv
+  - Captions: content/week1/day3_captions_kr_vi.md
+  - Checklist: content/week1/day3_publish_checklist.md
+- Day4 (F‑6 Prep)
+  - SRT: content/week1/day4_subtitles_kr_vi.srt
+  - CSV: content/week1/day4_cardnews_canva.csv
+  - Captions: content/week1/day4_captions_kr_vi.md
+  - Checklist: content/week1/day4_publish_checklist.md
+- Day5 (KIIP/TOPIK)
+  - SRT: content/week1/day5_subtitles_kr_vi.srt
+  - CSV: content/week1/day5_cardnews_canva.csv
+  - Captions: content/week1/day5_captions_kr_vi.md
+  - Checklist: content/week1/day5_publish_checklist.md
+- Day6 (Housing/Contract)
+  - SRT: content/week1/day6_subtitles_kr_vi.srt
+  - CSV: content/week1/day6_cardnews_canva.csv
+  - Captions: content/week1/day6_captions_kr_vi.md
+  - Checklist: content/week1/day6_publish_checklist.md
+- Day7 (Q/A #1)
+  - SRT: content/week1/day7_subtitles_kr_vi.srt
+  - CSV: content/week1/day7_cardnews_canva.csv
+  - Captions: content/week1/day7_captions_kr_vi.md
+  - Checklist: content/week1/day7_publish_checklist.md

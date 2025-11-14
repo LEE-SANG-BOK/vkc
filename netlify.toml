@@ -1,0 +1,10 @@
+[build]
+  publish = "vkc-agents/landing"
+  command = ""
+
+# Optional: prevent caching during rapid A/B tests
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "no-store"
+

@@ -1,0 +1,11 @@
+baseline: baseline/baseline.md
+agents:
+  - key: operations
+    name: 운영 에이전트
+    prompt: agents/operations.md
+  - key: marketing
+    name: 마케팅 에이전트
+    prompt: agents/marketing.md
+  - key: admin
+    name: 행정/문서 에이전트
+    prompt: agents/admin.md

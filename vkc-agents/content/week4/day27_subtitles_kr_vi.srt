@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:03,000
+KR: 주거 분쟁, 이렇게 대응!
+VI: Tranh chấp nhà ở, ứng phó như sau!
+
+2
+00:00:03,000 --> 00:00:10,000
+KR: 절차: 통보→증거수집→기관 신고
+VI: Quy trình: thông báo→thu thập bằng chứng→báo cơ quan
+
+3
+00:00:10,000 --> 00:00:17,000
+KR: 기관: 경찰/소비자센터/법률상담
+VI: Cơ quan: công an/trung tâm người tiêu dùng/tư vấn pháp lý
+
+4
+00:00:17,000 --> 00:00:30,000
+KR: 체크리스트 저장 → 프로필 링크
+VI: Lưu checklist → link ở hồ sơ

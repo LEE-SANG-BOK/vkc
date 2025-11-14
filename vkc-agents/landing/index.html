@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>VietKConnect — 24시간 안에 핵심 답변</title>
+
+    <!-- GA4 (TODO: G-XXXXXXXX를 실제 Measurement ID로 교체하거나, 사용하지 않으면 제거) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-XXXXXXXX');
+      window.addEventListener('page_view', (e) => { const p = e.detail || {}; gtag('event', 'page_view_custom', p); });
+      window.addEventListener('scroll_75', (e) => { const p = e.detail || {}; gtag('event', 'scroll_75', p); });
+      window.addEventListener('cta_click', (e) => { const p = e.detail || {}; gtag('event', 'cta_click', p); });
+    </script>
+
+    <!-- Meta Pixel (선택, TODO: PIXEL_ID 교체) -->
+    <script>
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+      document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'PIXEL_ID'); fbq('track', 'PageView');
+      window.addEventListener('cta_click', (e) => { fbq('track', 'Lead', e.detail || {}); });
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/></noscript>
+
+    <style>
+      :root { color-scheme: light dark; }
+      body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, sans-serif; }
+      .hero { max-width: 980px; margin: 0 auto; padding: 56px 24px; }
+      .badge { display: inline-flex; align-items: center; gap: 8px; background: #eef6ff; color: #0a66ff; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+      .h1 { font-size: 40px; font-weight: 800; line-height: 1.15; margin: 12px 0 0; }
+      .h2 { font-size: 18px; color: #444; margin: 12px 0 12px; }
+      .cta { margin-top: 16px; padding: 12px 20px; background: #0a66ff; color: #fff; border-radius: 10px; border: 0; font-weight: 700; cursor: pointer; }
+      .trust { margin-top: 14px; font-size: 14px; color: #222 }
+      .disclaimer { margin-top: 8px; font-size: 12px; color: #666; }
+      .section { max-width: 980px; margin: 0 auto; padding: 0 24px 32px; color: #222; }
+      .section h3 { margin: 24px 0 8px; }
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+      .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; }
+    </style>
+  </head>
+  <body>
+
+    <!-- Hero + A/B (variant) + UTM 전파 + 이벤트 바인딩 -->
+    <section class="hero" id="hero" data-variant="h1_a">
+      <h1 class="h1" data-h1-a>24시간 안에, 딱 필요한 답만 받자</h1>
+      <h1 class="h1" data-h1-b style="display:none">갑자기인데 질문해도 돼? 😎</h1>
+
+      <p class="h2" data-sub-a>10초 설문 → 맞춤 체크리스트 + KR/VI 요약</p>
+      <p class="h2" data-sub-b style="display:none">지금 물어보면 오늘 안에 핵심만 딱!</p>
+
+      <!-- TODO: data-target-a/b를 실제 Google Forms URL로 교체하세요 -->
+      <button class="cta" id="cta_primary" data-cta-a data-target-a="https://forms.gle/XXXXXXXX">지금 무료로 시작하기</button>
+      <button class="cta" id="cta_primary_b" data-cta-b data-target-b="https://forms.gle/ZZZZZZZZ" style="display:none">10초 설문 → 맞춤 답변 받기</button>
+    </section>
+
+    <!-- 혜택/핵심 질문 섹션 — 혜택 중심으로 간결하게 구성 -->
+    <section class="section">
+      <h3>바로 받는 혜택</h3>
+      <div class="grid">
+        <div class="card">24시간 이내 1차 핵심 회신</div>
+        <div class="card">맞춤 체크리스트 즉시 다운로드</div>
+        <div class="card">KR/VI 두 줄 요약(공유용)</div>
+      </div>
+      <h3>지금 뜨는 질문 TOP7</h3>
+      <div class="grid">
+        <div class="card">D‑10→E‑7 전환 3개월 플랜</div>
+        <div class="card">인턴/알바 경력 대체 입증</div>
+        <div class="card">외활허가 + 평일 25시간</div>
+        <div class="card">부산·경남 매칭/F‑2‑R</div>
+        <div class="card">ICT 전공 직무연계 문구</div>
+        <div class="card">서류 보완 순서/우선순위</div>
+        <div class="card">방학 풀타임 가능 여부</div>
+      </div>
+    </section>
+
+    <script>
+      (function() {
+        const el = document.getElementById('hero');
+        const qp = new URLSearchParams(location.search);
+        let variant = qp.get('variant');
+        if (!variant) { variant = Math.random() < 0.5 ? 'h1_a' : 'h1_b'; }
+        el.dataset.variant = variant;
+        const showA = variant === 'h1_a';
+        document.querySelector('[data-h1-a]').style.display = showA ? '' : 'none';
+        document.querySelector('[data-h1-b]').style.display = showA ? 'none' : '';
+        document.querySelector('[data-sub-a]').style.display = showA ? '' : 'none';
+        document.querySelector('[data-sub-b]').style.display = showA ? 'none' : '';
+        document.querySelector('[data-cta-a]').style.display = showA ? '' : 'none';
+        document.querySelector('[data-cta-b]').style.display = showA ? 'none' : '';
+
+        // page_view_custom
+        const mkEvent = (name, detail) => new CustomEvent(name, { detail });
+        const utm = {}; ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(k=>{ if(qp.get(k)) utm[k]=qp.get(k); });
+        window.dispatchEvent(mkEvent('page_view', { url: location.href, referrer: document.referrer, variant, utm }));
+
+        // scroll_75
+        let scrolled = false;
+        window.addEventListener('scroll', () => {
+          const ratio = (window.scrollY)/(document.body.scrollHeight - window.innerHeight + 1);
+          if (!scrolled && ratio > 0.75) { scrolled = true; window.dispatchEvent(mkEvent('scroll_75', { url: location.href, variant })); }
+        });
+
+        // CTA click → preserve utm + variant
+        function appendQuery(base) {
+          try { const u = new URL(base);
+            Object.entries(utm).forEach(([k,v]) => u.searchParams.set(k, v));
+            u.searchParams.set('variant', variant);
+            return u.toString();
+          } catch { return base; }
+        }
+        document.getElementById('cta_primary').addEventListener('click', (ev) => {
+          window.dispatchEvent(mkEvent('cta_click', { id: 'hero_primary', variant, utm }));
+          const base = ev.currentTarget.getAttribute('data-target-a') || '#';
+          location.href = appendQuery(base);
+        });
+        document.getElementById('cta_primary_b').addEventListener('click', (ev) => {
+          window.dispatchEvent(mkEvent('cta_click', { id: 'hero_primary', variant, utm }));
+          const base = ev.currentTarget.getAttribute('data-target-b') || '#';
+          location.href = appendQuery(base);
+        });
+      })();
+    </script>
+
+  </body>
+  </html>

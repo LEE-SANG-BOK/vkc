@@ -1,0 +1,71 @@
+<!-- Landing Hero Snippet (Variant-ready, A/B & Tagging) -->
+<style>
+  .hero { max-width: 980px; margin: 0 auto; padding: 48px 24px; font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, sans-serif; }
+  .h1 { font-size: 40px; font-weight: 800; line-height: 1.15; }
+  .h2 { font-size: 18px; color: #444; margin-top: 12px; }
+  .cta { margin-top: 20px; padding: 12px 20px; background: #0a66ff; color: #fff; border-radius: 10px; border: 0; font-weight: 700; cursor: pointer; }
+  /* trust/badge/disclaimer 제거(혜택 중심) */
+</style>
+
+<section class="hero" id="hero" data-variant="h1_a">
+  <h1 class="h1" data-h1-a>24시간 안에, 딱 필요한 답만 받자</h1>
+  <h1 class="h1" data-h1-b style="display:none">갑자기인데 질문해도 돼? 😎</h1>
+
+  <p class="h2" data-sub-a>10초 설문 → 맞춤 체크리스트 + KR/VI 요약</p>
+  <p class="h2" data-sub-b style="display:none">지금 물어보면 오늘 안에 핵심만 딱!</p>
+
+  <!-- data-target-a / data-target-b: 기본 이동 URL(필수). Webflow에서 프로젝트 URL로 교체하세요. -->
+  <button class="cta" id="cta_primary" data-cta-a data-target-a="https://forms.gle/xxxxxxxx">지금 무료로 시작하기</button>
+  <button class="cta" id="cta_primary_b" data-cta-b data-target-b="https://forms.gle/zzzzzzzz" style="display:none">10초 설문 → 맞춤 답변 받기</button>
+</section>
+
+<script>
+  // A/B Variant toggling by query or random split (client-side demo)
+  (function() {
+    const el = document.getElementById('hero');
+    const qp = new URLSearchParams(location.search);
+    let variant = qp.get('variant');
+    if (!variant) {
+      variant = Math.random() < 0.5 ? 'h1_a' : 'h1_b';
+    }
+    el.dataset.variant = variant;
+    const showA = variant === 'h1_a';
+    document.querySelector('[data-h1-a]').style.display = showA ? '' : 'none';
+    document.querySelector('[data-h1-b]').style.display = showA ? 'none' : '';
+    document.querySelector('[data-sub-a]').style.display = showA ? '' : 'none';
+    document.querySelector('[data-sub-b]').style.display = showA ? 'none' : '';
+    document.querySelector('[data-cta-a]').style.display = showA ? '' : 'none';
+    document.querySelector('[data-cta-b]').style.display = showA ? 'none' : '';
+
+    // Basic tagging (replace with GA4/Pixel events)
+    const mkEvent = (name, detail) => new CustomEvent(name, { detail });
+    window.dispatchEvent(mkEvent('page_view', { url: location.href, variant, utm: Object.fromEntries(qp) }));
+    let scrolled = false;
+    window.addEventListener('scroll', () => {
+      if (!scrolled && (window.scrollY / (document.body.scrollHeight - window.innerHeight)) > 0.75) {
+        scrolled = true;
+        window.dispatchEvent(mkEvent('scroll_75', { url: location.href, variant }));
+      }
+    });
+    function appendQuery(base) {
+      try {
+        const u = new URL(base);
+        // preserve existing UTM from current URL
+        ['utm_source','utm_medium','utm_campaign','utm_content','variant'].forEach(k=>{
+          if (qp.get(k)) u.searchParams.set(k, qp.get(k));
+        });
+        return u.toString();
+      } catch { return base; }
+    }
+    document.getElementById('cta_primary').addEventListener('click', (ev) => {
+      window.dispatchEvent(mkEvent('cta_click', { id: 'hero_primary', variant }));
+      const base = ev.currentTarget.getAttribute('data-target-a') || '#';
+      location.href = appendQuery(base);
+    });
+    document.getElementById('cta_primary_b').addEventListener('click', (ev) => {
+      window.dispatchEvent(mkEvent('cta_click', { id: 'hero_primary', variant }));
+      const base = ev.currentTarget.getAttribute('data-target-b') || '#';
+      location.href = appendQuery(base);
+    });
+  })();
+</script>

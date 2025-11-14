@@ -1,0 +1,24 @@
+1
+00:00:00,000 --> 00:00:03,000
+KR: D‑2 준비, 이건 오해입니다!
+VI: Chuẩn bị D‑2, đây là hiểu lầm!
+
+2
+00:00:03,000 --> 00:00:10,000
+KR: 오해① TOPIK 없어도 된다? X → 최소 요건 확인
+VI: Hiểu lầm① Không cần TOPIK? Sai → Kiểm tra điều kiện tối thiểu
+
+3
+00:00:10,000 --> 00:00:17,000
+KR: 오해② 서류 늦게 모아도 된다? X → 마감 1달 전 시작
+VI: Hiểu lầm② Nộp muộn cũng được? Sai → Bắt đầu trước 1 tháng
+
+4
+00:00:17,000 --> 00:00:25,000
+KR: 오해③ 무조건 대행이 유리? X → 검증된 체크리스트 우선
+VI: Hiểu lầm③ Luôn cần đại lý? Sai → Ưu tiên checklist đã xác thực
+
+5
+00:00:25,000 --> 00:00:30,000
+KR: 검증된 답변 보러가기 — 링크/프로필
+VI: Xem câu trả lời đã xác thực — link/profil

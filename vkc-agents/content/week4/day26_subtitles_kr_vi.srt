@@ -1,0 +1,19 @@
+1
+00:00:00,000 --> 00:00:03,000
+KR: KIIP/TOPIK 시험 당일, 이렇게!
+VI: Ngày thi KIIP/TOPIK, như thế này!
+
+2
+00:00:03,000 --> 00:00:10,000
+KR: 시간표/입실/지참물 체크
+VI: Lịch/giờ vào/phụ kiện mang theo
+
+3
+00:00:10,000 --> 00:00:17,000
+KR: 루틴: 호흡/페이스/검토
+VI: Routine: hít thở/nhịp độ/soát lại
+
+4
+00:00:17,000 --> 00:00:30,000
+KR: 체크리스트 저장 → 프로필 링크
+VI: Lưu checklist → link ở hồ sơ

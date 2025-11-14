@@ -1,0 +1,19 @@
+<!-- GA4 gtag base (replace G-XXXXXXXX with your Measurement ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXX');
+
+  // Bind custom events from landing_hero_snippet
+  window.addEventListener('page_view', (e) => {
+    const p = e.detail || {}; gtag('event', 'page_view_custom', p);
+  });
+  window.addEventListener('scroll_75', (e) => {
+    const p = e.detail || {}; gtag('event', 'scroll_75', p);
+  });
+  window.addEventListener('cta_click', (e) => {
+    const p = e.detail || {}; gtag('event', 'cta_click', p);
+  });
+</script>
