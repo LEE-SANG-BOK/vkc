@@ -1,4 +1,6 @@
 [build]
+  # Run build from repo root (relative), publish subfolder with index.html
+  base = "."
   publish = "vkc-agents/landing"
   command = ""
 
@@ -7,4 +9,3 @@
   for = "/*"
   [headers.values]
     Cache-Control = "no-store"
-
