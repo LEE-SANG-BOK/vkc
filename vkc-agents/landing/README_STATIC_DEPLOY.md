@@ -67,3 +67,22 @@
 - 랜딩 카피/섹션 구조: `vkc-agents/funnel/landing_copy_kr_vi.md`
 - UTM/이벤트 표준: `vkc-agents/ops/utm_schema.md`
 - 검증 체크리스트(상세): `vkc-agents/ops/verify_events_checklist.md`
+
+## 공유/프리뷰(OG/Twitter)
+- 권장 이미지: `og-image-1200x630.png` (1200×630, 1:1.91)
+- 임시로 `og-template.svg`를 제공하거나, PNG를 동일 경로에 업로드해 교체하세요.
+
+## 리퍼럴/리더보드 연결
+- 초대 링크: 랜딩 상단의 “내 초대링크”에서 자동 생성(ref 코드)
+- 히든 필드: `ref`, `ga_cid`가 폼에 자동 주입되어 CSV로 수집됩니다.
+- 리더보드: Google Sheets를 ‘웹에 게시(CSV)’로 공개 → `<meta name="leaderboard-url" content="https://...csv">`로 설정
+  - JSON을 직접 배포해도 됩니다(`/leaderboard.json`). 샘플: `vkc-agents/landing/leaderboard_sample.json`
+  - 컬럼 예시: user,score,invites,accepted,days
+
+## Netlify Forms(내장 설문) 사용 안내
+- 이 템플릿에는 Netlify Forms 2종이 포함되어 있습니다.
+  - `pre_survey` (사전 12문) — 섹션 id `#pre_survey`
+  - `onboarding_survey` (온보딩 5문) — 섹션 id `#onboarding_survey`
+- CTA는 각각 `#pre_survey`/`#onboarding_survey`로 이동하며, 제출 시 Netlify Submissions에 저장됩니다.
+- 숨김 필드로 `utm_*`/`variant`/`referrer`가 자동 주입됩니다.
+- 제출 데이터: Netlify Dashboard → Site → Forms → Submissions에서 확인

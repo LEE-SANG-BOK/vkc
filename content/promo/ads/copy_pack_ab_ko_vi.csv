@@ -1,0 +1,13 @@
+platform,creative,variant,headline_kr,primary_kr,headline_vi,primary_vi,utm_content
+tt,top5_d10e7,A,"3개월 놓치면 난이도↑","D‑10→E‑7 12주: 계획서→확약서→제출","Bỏ lỡ 3 tháng → khó hơn","D‑10→E‑7 12 tuần: kế hoạch→cam kết→nộp","d10e7_a"
+tt,top5_d10e7,B,"D‑10→E‑7 12주 흐름","주1–4 계획서 · 주5–8 확약서 · 주9–12 제출","D‑10→E‑7 12 tuần","Tuần1–4 kế hoạch · Tuần5–8 cam kết · Tuần9–12 nộp","d10e7_b"
+tt,top5_25h,A,"허가 없이 25h? 위험","학기 중 근로는 허가·시간 준수가 핵심","Không phép mà vượt 25h?","Trong kỳ học phải xin phép và giữ giờ","25h_a"
+tt,top5_25h,B,"25h·허가 체크","허가→합산→변경 시 재신청","25h & Giấy phép","Xin→cộng giờ→đổi nơi làm nộp lại","25h_b"
+ig,top5_topik,A,"TOPIK 2주 루틴","데일리45’ + 주말 모의고사","Lộ trình TOPIK 2 tuần","45’/ngày + đề mô cuối tuần","topik_a"
+ig,top5_topik,B,"TOPIK 점프","진단→데일리→모의고사","Nhảy level TOPIK","Chẩn đoán→hằng ngày→đề mô","topik_b"
+yt,top5_contract,A,"계약 리스크 2","송금 전 실명·등기/특약 필수","2 rủi ro hợp đồng","Trước khi chuyển cọc: tên thật/sổ đỏ, điều khoản bổ sung","contract_a"
+yt,top5_contract,B,"보증금 지키기","계약서/영수증/통신 기록 보관","Giữ tiền cọc","Lưu HĐ/biên nhận/lịch sử liên lạc","contract_b"
+tt,top5_busan,A,"부산·경남·F‑2‑R","캘린더→확약서→추천 비자","Busan–Gyeongnam·F‑2‑R","Lịch→cam kết→visa đề cử","busan_a"
+tt,top5_busan,B,"지역 연계가 쉬운 이유","행사→확약서→정주 계획","Vì sao kết nối khu vực dễ","Sự kiện→cam kết→kế hoạch định cư","busan_b"
+ig,expert_tips,A,"전문가/시니어 최신 팁","출입국 업데이트 반영, 실행 카드로 요약","Mẹo mới từ chuyên gia/senior","Cập nhật xuất nhập cảnh, tóm tắt thành thẻ hành động","expert_a"
+tt,expert_tips,B,"인증된 신뢰 정보","사례·자료 링크 동반 요약","Thông tin đáng tin cậy","Tóm tắt kèm ví dụ/tài liệu","expert_b"

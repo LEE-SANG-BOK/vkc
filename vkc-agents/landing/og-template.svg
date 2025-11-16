@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a66ff"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <g font-family="'Segoe UI', Roboto, Noto Sans" fill="#fff">
+    <text x="60" y="180" font-size="64" font-weight="800">오늘의 실행 카드 Top5</text>
+    <text x="60" y="250" font-size="36">비자·근무·시험·생활 — 지금 결정에 필요한 답</text>
+    <rect x="60" y="320" width="1080" height="220" rx="20" fill="rgba(255,255,255,0.12)"/>
+    <text x="90" y="380" font-size="32">• D‑10→E‑7 12주</text>
+    <text x="90" y="430" font-size="32">• 25h·허가 체크 • TOPIK 점프 • 계약 리스크2 • 부산·경남·F‑2‑R</text>
+  </g>
+</svg>
