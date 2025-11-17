@@ -1,452 +1,281 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>VietKConnect — 오늘의 실행 카드 Top5</title>
-
-    <!-- Open Graph / Twitter (share preview) -->
-    <meta property="og:title" content="오늘의 실행 카드 Top5" />
-    <meta property="og:description" content="비자·근무·시험·생활 — 지금 결정에 필요한 답" />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/og-image-1200x630.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="오늘의 실행 카드 Top5" />
-    <meta name="twitter:description" content="비자·근무·시험·생활 — 지금 결정에 필요한 답" />
-    <meta name="twitter:image" content="/og-image-1200x630.png" />
-    <!-- Optional: external leaderboard JSON/CSV URL (set content) -->
-    <meta name="leaderboard-url" content="/leaderboard.json" />
-
-    <!-- GA4 (TODO: G-XXXXXXXX를 실제 Measurement ID로 교체하거나, 사용하지 않으면 제거) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZDWM0LECS"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-PZDWM0LECS');
-      window.addEventListener('page_view', (e) => { const p = e.detail || {}; gtag('event', 'page_view_custom', p); });
-      window.addEventListener('scroll_75', (e) => { const p = e.detail || {}; gtag('event', 'scroll_75', p); });
-      window.addEventListener('cta_click', (e) => { const p = e.detail || {}; gtag('event', 'cta_click', p); });
-      window.addEventListener('sign_up', (e) => { const p = e.detail || {}; gtag('event', 'sign_up', p); });
-    </script>
-
-    <!-- Meta Pixel (선택, TODO: PIXEL_ID 교체) -->
-    <script>
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-      document,'script','https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'PIXEL_ID'); fbq('track', 'PageView');
-      window.addEventListener('cta_click', (e) => { fbq('track', 'Lead', e.detail || {}); });
-    </script>
-    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1"/></noscript>
-
-    <style>
-      :root { color-scheme: light dark; }
-      body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, sans-serif; }
-      .hero { max-width: 980px; margin: 0 auto; padding: 56px 24px; }
-      .badge { display: inline-flex; align-items: center; gap: 8px; background: #eef6ff; color: #0a66ff; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
-      .h1 { font-size: 40px; font-weight: 800; line-height: 1.15; margin: 12px 0 0; }
-      .h2 { font-size: 18px; color: #444; margin: 12px 0 12px; }
-      .cta { margin-top: 16px; padding: 12px 20px; background: #0a66ff; color: #fff; border-radius: 10px; border: 0; font-weight: 700; cursor: pointer; }
-      .trust { margin-top: 14px; font-size: 14px; color: #222 }
-      .disclaimer { margin-top: 8px; font-size: 12px; color: #666; }
-      .section { max-width: 980px; margin: 0 auto; padding: 0 24px 32px; color: #222; }
-      .section h3 { margin: 24px 0 8px; }
-      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
-      .card { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; }
-      .sticky-cta { position: fixed; right: 16px; bottom: 16px; z-index: 30; box-shadow: 0 8px 24px rgba(0,0,0,.14); }
-      .badge-k { display:inline-block; padding:2px 8px; border-radius:8px; background:#eef6ff; color:#0a66ff; font-size:12px; font-weight:700; }
-      .ref-box { max-width:980px; margin: 0 auto 24px; padding: 0 24px; }
-      .ref { border:1px dashed #cbd5e1; background:#f8fafc; padding:12px; border-radius:12px; display:flex; gap:8px; align-items:center; }
-      .ref input { flex:1; padding:8px; border:1px solid #e5e7eb; border-radius:8px; }
-      .banner { max-width:980px; margin: 0 auto; padding: 8px 24px; }
-      .banner .inner { background:#0a66ff; color:#fff; padding:10px 14px; border-radius:12px; display:flex; justify-content:space-between; align-items:center; gap:12px; }
-      .banner a { color:#fff; text-decoration: underline; }
-      table.lb { width:100%; border-collapse: collapse; }
-      table.lb th, table.lb td { border-bottom:1px solid #e5e7eb; padding:8px; text-align:left; }
-      .muted { color:#64748b; font-size:12px; }
-      .form-section { max-width: 980px; margin: 0 auto; padding: 0 24px 48px; }
-      form { border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; background: #fff; }
-      label { display: block; font-weight: 600; margin-top: 12px; }
-      input[type="text"], input[type="email"], select, textarea { width: 100%; padding: 8px; border: 1px solid #e5e7eb; border-radius: 8px; margin-top: 6px; }
-      .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
-      .small { font-size: 12px; color: #666; }
-    </style>
-  </head>
-  <body>
-
-    <!-- Referral Event Banner -->
-    <div class="banner">
-      <div class="inner">
-        <div>리퍼럴 랭킹 이벤트 진행 예정 (Day5–Day18)</div>
-        <div><a href="#pre_survey">지금 참여</a> · <a href="#rules">이벤트 안내</a></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VietKConnect | Verified Visa & Community Support</title>
+  <meta name="description" content="베트남 유학생·취업 준비생을 위한 비자/생활/커리어 맞춤 지원" />
+  <meta property="og:title" content="VietKConnect — Trusted Visa & Community Support" />
+  <meta property="og:description" content="비자·생활·커리어를 24시간 내 인증된 답변으로 해결하세요." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/og-image-1200x630.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Be+Vietnam+Pro:wght@400;700;900&family=Poppins:wght@500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2Lw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header id="header" class="header">
+    <div class="container header-container">
+      <div class="logo"><a href="#">VietKConnect</a></div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="#services" data-lang-key="nav_services">서비스</a></li>
+          <li><a href="#content" data-lang-key="nav_content">콘텐츠</a></li>
+          <li><a href="#success" data-lang-key="nav_success">성공 사례</a></li>
+          <li><a href="#why" data-lang-key="nav_why">왜 VietKConnect?</a></li>
+          <li><a href="#consultation" data-lang-key="nav_consultation">상담 예약</a></li>
+          <li><a href="survey/index.html" class="pill" data-lang-key="nav_cards">실행 카드(베타)</a></li>
+        </ul>
+      </nav>
+      <div class="header-utils">
+        <div class="language-switcher">
+          <button id="lang-ko" class="active">KR</button>
+          <span>/</span>
+          <button id="lang-vi">VI</button>
+        </div>
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
       </div>
     </div>
+  </header>
 
-    <!-- Hero + A/B (variant) + UTM 전파 + 이벤트 바인딩 -->
-    <section class="hero" id="hero" data-variant="h1_a">
-      <h1 class="h1" data-h1-a>24시간 안에, 딱 필요한 답만 받자</h1>
-      <h1 class="h1" data-h1-b style="display:none">갑자기인데 질문해도 돼? 😎</h1>
-
-      <p class="h2" data-sub-a>비자·근무·시험·생활 — 오늘의 실행 카드 Top5</p>
-      <p class="h2" data-sub-b style="display:none">비자·근무·시험·생활 — 오늘의 실행 카드 Top5</p>
-
-      <!-- Netlify Forms 사용: CTA는 페이지 내 설문 섹션으로 이동 -->
-      <button class="cta" id="cta_primary" data-cta-a data-target-a="#pre_survey">지금 내 실행 카드 보기</button>
-      <button class="cta" id="cta_primary_b" data-cta-b data-target-b="#pre_survey" style="display:none">지금 내 실행 카드 보기</button>
-    </section>
-
-    <!-- 혜택/핵심 질문 섹션 — 혜택 중심으로 간결하게 구성 -->
-    <section class="section" id="top5">
-      <h3>오늘의 실행 카드 Top5</h3>
-      <div class="grid">
-        <div class="card"><span class="badge-k">비자</span> D‑10→E‑7 12주 흐름</div>
-        <div class="card"><span class="badge-k">근무</span> 평일 25h·외활허가 체크</div>
-        <div class="card"><span class="badge-k">시험</span> TOPIK 점프 루틴</div>
-        <div class="card"><span class="badge-k">생활</span> 계약·보증금 리스크 2</div>
-        <div class="card"><span class="badge-k">지역</span> 부산·경남 매칭·F‑2‑R 한눈에</div>
-      </div>
-    </section>
-
-    <section class="section" id="compare">
-      <h3>왜 여기인가 (Compared to FB)</h3>
-      <div class="grid">
-        <div class="card">주제별 카드로 바로 실행(스크롤·반복질문 최소화)</div>
-        <div class="card">중복·루머 최소화(자료·사례 중심 정리)</div>
-        <div class="card">KR/VI 요약으로 저장·공유 쉬움</div>
-        <div class="card">인증된 전문가/시니어의 최신 팁(출입국 업데이트 반영)</div>
-      </div>
-    </section>
-
-    <!-- 신뢰 포인트: 전문가/시니어 팁 -->
-    <section class="section" id="expert_tips">
-      <h3>신뢰 포인트</h3>
-      <div class="grid">
-        <div class="card">최근 출입국 변화 요약 · 체크 3</div>
-        <div class="card">전문가/시니어 기여 · 사례 기반 팁</div>
-        <div class="card">자료/증빙 링크 동반 · 업데이트 고지</div>
-      </div>
-    </section>
-
-    <!-- 초대 링크 복사 박스 (리퍼럴) -->
-    <div class="ref-box">
-      <div class="ref">
-        <span style="font-weight:700;color:#0a66ff">내 초대링크</span>
-        <input id="ref_link" readonly value="" />
-        <button class="cta" id="ref_copy">복사</button>
-      </div>
-      <p class="small">* 초대 링크로 들어온 사용자의 ‘설계 제출 + 최소 1행동’이 유효 초대로 인정됩니다.</p>
-    </div>
-
-    <!-- Netlify Forms: 사전 설문(12문항) -->
-    <section class="form-section" id="pre_survey">
-      <h3>내 실행 카드 설계 — 약 1분</h3>
-      <form name="pre_survey" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="form-pre">
-        <input type="hidden" name="form-name" value="pre_survey" />
-        <p class="small">* 필수 항목. KR/VI 병기.</p>
-        <p style="display:none">
-          <label>Don’t fill this out: <input name="bot-field" /></label>
-        </p>
-        <div class="row">
-          <label>현재 상태* / Tình trạng hiện tại
-            <select name="status" required>
-              <option value="">선택</option>
-              <option>D‑2</option>
-              <option>D‑10</option>
-              <option>E‑7</option>
-              <option>기타/Khác</option>
-            </select>
-          </label>
-          <label>목표/관심* / Mục tiêu
-            <select name="goal" required>
-              <option value="">선택</option>
-              <option>E‑7‑4</option>
-              <option>D‑2</option>
-              <option>F‑6</option>
-              <option>취업/Việc làm</option>
-              <option>기타/Khác</option>
-            </select>
-          </label>
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="badge" data-lang-key="hero_badge">베트남 인증 Q&A · AI 자동화</p>
+        <h1 class="hero-title" data-lang-key="hero_title">비자 · 생활 · 커리어 — 24시간 안에 인증된 답변</h1>
+        <p class="hero-subtitle" data-lang-key="hero_subtitle">행정사·시니어 멘토·AI 도구가 협업해 D‑10→E‑7→F‑2·F‑5까지 한 번에 연결합니다.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary js-site-link" data-lang-key="hero_cta" data-site-url=""><i class="fas fa-up-right-from-square"></i> 웹사이트 열기</a>
+          <a href="survey/index.html" class="btn btn-secondary" data-lang-key="hero_secondary"><i class="fas fa-layer-group"></i> 실행 카드 보기</a>
         </div>
-        <div class="row">
-          <label>오늘의 1순위 / Ưu tiên hôm nay*
-            <select name="pain" required>
-              <option value="">선택</option>
-              <option>절차/Thủ tục</option>
-              <option>서류/Hồ sơ</option>
-              <option>비용/Chi phí</option>
-              <option>사기/Lừa đảo</option>
-              <option>기타/Khác</option>
-            </select>
-          </label>
-          <label>근로 계획 / Kế hoạch làm thêm
-            <select name="work_plan">
-              <option value="">선택</option>
-              <option>없음/Không</option>
-              <option>학기중 평일/Trong kỳ</option>
-              <option>주말/방학/Cuối tuần/Kỳ nghỉ</option>
-            </select>
-          </label>
-        </div>
-        <div class="row">
-          <label>긴급도 / Mức độ gấp
-            <select name="urgency">
-              <option value="">선택</option>
-              <option>즉시/Ngay</option>
-              <option>1개월/1 tháng</option>
-              <option>3개월/3 tháng</option>
-              <option>탐색 중/Đang tìm hiểu</option>
-            </select>
-          </label>
-          <label>연락 채널 / Kênh liên hệ
-            <select name="contact_channel">
-              <option value="">선택</option>
-              <option>Email</option>
-              <option>Zalo</option>
-              <option>Kakao</option>
-              <option>기타/Khác</option>
-            </select>
-          </label>
-        </div>
-        <div class="row">
-          <label>연락처(선택) / Liên hệ
-            <input type="text" name="contact" placeholder="email@ 또는 Zalo/Kakao ID" />
-          </label>
-        </div>
-        <label>오픈엔드 / Câu hỏi mở
-          <textarea name="open_question" rows="3" placeholder="가장 혼란스러운 질문 1가지"></textarea>
-        </label>
-        <!-- Hidden UTM/variant -->
-        <input type="hidden" name="utm_source" />
-        <input type="hidden" name="utm_medium" />
-        <input type="hidden" name="utm_campaign" />
-        <input type="hidden" name="utm_content" />
-        <input type="hidden" name="variant" />
-        <input type="hidden" name="referrer" />
-        <input type="hidden" name="ref" />
-        <input type="hidden" name="ga_cid" />
-        <div style="margin-top:12px"><button type="submit" class="cta">제출하기</button></div>
-        <div id="pre-thanks" class="small" style="display:none; margin-top:8px; color:#0a66ff; font-weight:700">제출 완료! 👉 <a href="#top5">당신의 실행 카드 Top5 보기</a></div>
-      </form>
-    </section>
-
-    <!-- 리더보드 (Top20) -->
-    <section class="section" id="leaderboard">
-      <h3>리더보드 Top20</h3>
-      <div id="lb_wrap" class="card">
-        <div class="muted">집계 로딩 중…</div>
-      </div>
-    </section>
-
-    <!-- 규칙 요약 -->
-    <section class="section" id="rules">
-      <h3>이벤트 안내(요약)</h3>
-      <div class="grid">
-        <div class="card">유효 초대: 설계 제출 + 최소 1행동(온보딩/질문/답변/북마크/팔로우)</div>
-        <div class="card">점수: 초대(최대40)·채택(최대30)·출석(최대15)·질문(최대10)·북/팔(최대5)</div>
-        <div class="card">보상: Top10 상금 / 유효 초대 10명 달성 즉시 5천(선착 200)</div>
-      </div>
-      <p class="small">자세한 규칙은 운영 문서 참조(ops/referral_event_rules_ko_vi.md).</p>
-    </section>
-
-    <!-- Netlify Forms: 온보딩 설문(5문항) -->
-    <section class="form-section" id="onboarding_survey">
-      <h3>온보딩(5문항) — 약 30초</h3>
-      <form name="onboarding_survey" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="form-onb">
-        <input type="hidden" name="form-name" value="onboarding_survey" />
-        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
-        <div class="row">
-          <label>가치 명확성(1–5)
-            <select name="value_clarity" required>
-              <option value="">선택</option>
-              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-            </select>
-          </label>
-          <label>신뢰/권위(1–5)
-            <select name="trust_score" required>
-              <option value="">선택</option>
-              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-            </select>
-          </label>
-          <label>CTA 명확성(1–5)
-            <select name="cta_clarity" required>
-              <option value="">선택</option>
-              <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option>
-            </select>
-          </label>
-        </div>
-        <label>선호 기능(복수)
-          <div class="row">
-            <label><input type="checkbox" name="features" value="checklist" /> 체크리스트</label>
-            <label><input type="checkbox" name="features" value="cases" /> 사례 라이브러리</label>
-            <label><input type="checkbox" name="features" value="curation" /> 질문 큐레이션</label>
-            <label><input type="checkbox" name="features" value="webinar" /> 웨비나</label>
+        <div class="hero-stats">
+          <div class="stat">
+            <i class="fas fa-user-shield"></i>
+            <h3 data-lang-key="stat1_title">관리자·행정사 검수</h3>
+            <p data-lang-key="stat1_desc">24h 응답 SLA + 사례 검증</p>
           </div>
-        </label>
-        <label>가장 부족했던 1가지
-          <textarea name="most_missing" rows="3" placeholder="무엇이 있었다면 바로 진행하셨나요?"></textarea>
-        </label>
-        <!-- Hidden UTM/variant -->
-        <input type="hidden" name="utm_source" />
-        <input type="hidden" name="utm_medium" />
-        <input type="hidden" name="utm_campaign" />
-        <input type="hidden" name="utm_content" />
-        <input type="hidden" name="variant" />
-        <input type="hidden" name="referrer" />
-        <input type="hidden" name="ref" />
-        <input type="hidden" name="ga_cid" />
-        <div style="margin-top:12px"><button type="submit" class="cta">제출하기</button></div>
-        <div id="onb-thanks" class="small" style="display:none; margin-top:8px; color:#0a66ff; font-weight:700">제출 완료! 👉 <a href="#top5">당신의 실행 카드 Top5 보기</a></div>
-      </form>
+          <div class="stat">
+            <i class="fas fa-robot"></i>
+            <h3 data-lang-key="stat2_title">AI 문서 자동화</h3>
+            <p data-lang-key="stat2_desc">고용사유서/진정서/반성문 템플릿</p>
+          </div>
+          <div class="stat">
+            <i class="fas fa-bullhorn"></i>
+            <h3 data-lang-key="stat3_title">실시간 정책 피드</h3>
+            <p data-lang-key="stat3_desc">출입국 예약 · TOPIK · 지역특화 업데이트</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <script>
-      (function() {
-        const el = document.getElementById('hero');
-        const qp = new URLSearchParams(location.search);
-        let variant = qp.get('variant');
-        if (!variant) { variant = Math.random() < 0.5 ? 'h1_a' : 'h1_b'; }
-        el.dataset.variant = variant;
-        const showA = variant === 'h1_a';
-        document.querySelector('[data-h1-a]').style.display = showA ? '' : 'none';
-        document.querySelector('[data-h1-b]').style.display = showA ? 'none' : '';
-        document.querySelector('[data-sub-a]').style.display = showA ? '' : 'none';
-        document.querySelector('[data-sub-b]').style.display = showA ? 'none' : '';
-        document.querySelector('[data-cta-a]').style.display = showA ? '' : 'none';
-        document.querySelector('[data-cta-b]').style.display = showA ? 'none' : '';
+    <section id="resources" class="section bg-light">
+      <div class="container">
+        <h2 class="section-title">자료 패키지(전문가/시니어 검수)</h2>
+        <p class="section-subtitle">고용사유서·근로계약 증빙을 한 번에 준비하세요.</p>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <i class="fas fa-file-signature"></i>
+            <h3>고용사유서 템플릿</h3>
+            <p>직무‑전공 매칭, 업무범위·KPI, 재무 신뢰도까지 포함(A4 1–2쪽).</p>
+            <p><a class="btn btn-secondary" href="/content/templates/employment_reason_letter_template_ko.md">다운로드</a></p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-clipboard-check"></i>
+            <h3>근로계약·증빙 체크리스트</h3>
+            <p>계약서·예산반영·좌석/장비/권한·매출 증빙 등 실근무 증빙.</p>
+            <p><a class="btn btn-secondary" href="/content/checklists/employment_evidence_pack_ko.md">다운로드</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // page_view_custom
-        const mkEvent = (name, detail) => new CustomEvent(name, { detail });
-        const utm = {}; ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(k=>{ if(qp.get(k)) utm[k]=qp.get(k); });
-        const refParam = qp.get('ref') || '';
-        window.dispatchEvent(mkEvent('page_view', { url: location.href, referrer: document.referrer, variant, utm }));
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title" data-lang-key="services_title">We Solve the Whole Journey</h2>
+        <p class="section-subtitle" data-lang-key="services_subtitle">비자 전환, 생활 리스크, 커리어 연결까지 한 화면에서 확인하세요.</p>
+        <div class="service-grid">
+          <div class="service-card">
+            <i class="fas fa-route"></i>
+            <h3 data-lang-key="service1_title">D‑10→E‑7→F‑2/F‑5 로드맵</h3>
+            <p data-lang-key="service1_desc">12주 타임라인, 서류 체크, 인터뷰 대비를 동시에 제공.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-bell"></i>
+            <h3 data-lang-key="service2_title">실시간 출입국 · 예약 배너</h3>
+            <p data-lang-key="service2_desc">하이코리아 업데이트를 자동 수집해 대기 시간을 줄입니다.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-file-signature"></i>
+            <h3 data-lang-key="service3_title">문서 · 반성문 자동 생성</h3>
+            <p data-lang-key="service3_desc">고용사유서, 진정서, 알바 신고서 등을 AI가 초안으로 제작.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-comments"></i>
+            <h3 data-lang-key="service4_title">AI 챗봇 & 전문가 Q/A</h3>
+            <p data-lang-key="service4_desc">1345 FAQ + 검증 멘토 답변으로 24시간 대응.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // scroll_75
-        let scrolled = false;
-        window.addEventListener('scroll', () => {
-          const ratio = (window.scrollY)/(document.body.scrollHeight - window.innerHeight + 1);
-          if (!scrolled && ratio > 0.75) { scrolled = true; window.dispatchEvent(mkEvent('scroll_75', { url: location.href, variant })); }
-        });
+    <section id="policy" class="section bg-light">
+      <div class="container">
+        <h2 class="section-title" data-lang-key="policy_title">최신 정책 브리핑</h2>
+        <p class="section-subtitle" data-lang-key="policy_subtitle">출입국 공지·대학 안내·행정사 자료를 통합 요약해 바로 실행할 수 있게 정리합니다.</p>
+        <div class="policy-grid">
+          <div class="policy-card">
+            <div class="pill-label" data-lang-key="policy_card1_pill">D‑2 → D‑10 → E‑7 흐름</div>
+            <h3 data-lang-key="policy_card1_title">체류 단계 요약</h3>
+            <ul>
+              <li data-lang-key="policy_card1_li1">D‑2 재학 중에는 교외 아르바이트 전 <strong>S‑3 허가</strong> 필수.</li>
+              <li data-lang-key="policy_card1_li2">졸업/졸업예정 후 D‑10(구직) 전환, 2025‑10‑29부터 최대 3년 연장.</li>
+              <li data-lang-key="policy_card1_li3">정규직 오퍼 확인 후 E‑7 변경, 직무 적합성과 임금 요건 체크.</li>
+            </ul>
+            <span class="muted" data-lang-key="policy_card1_hint">출처: 대학 국제처, HiKorea, KOWORK, 행정사 가이드</span>
+          </div>
+          <div class="policy-card">
+            <div class="pill-label" data-lang-key="policy_card2_pill">E‑7 임금 고시(2025)</div>
+            <h3 data-lang-key="policy_card2_title">고정 연봉 2,867만원+</h3>
+            <ul>
+              <li data-lang-key="policy_card2_li1">2025‑04‑01~12‑31: 직종별 <strong>고정 연봉 기준</strong> 적용.</li>
+              <li data-lang-key="policy_card2_li2">총보수 산식(기본급+수당+상여)을 계약서에 명시.</li>
+              <li data-lang-key="policy_card2_li3">별도 고시 직종/국민고용비율/세금 체납 여부도 함께 검토.</li>
+            </ul>
+            <span class="muted" data-lang-key="policy_card2_hint">법무부 공고 제2025‑106호 · KOWORK · 행정사 자료</span>
+          </div>
+          <div class="policy-card">
+            <div class="pill-label" data-lang-key="policy_card3_pill">서류 & 컴플라이언스</div>
+            <h3 data-lang-key="policy_card3_title">체류·근로 서류 팁</h3>
+            <ul>
+              <li data-lang-key="policy_card3_li1">D‑10 전환: 졸업(예정)증명, 체류지(임대차), 체재비 증빙 준비.</li>
+              <li data-lang-key="policy_card3_li2">E‑7 신청: 학력/경력 매칭 표, 고용계약서 임금 요건 충족 여부 확인.</li>
+              <li data-lang-key="policy_card3_li3">최근 위반/과태료 여부, 근로계약서 필수 조항, 임금명세 보관.</li>
+            </ul>
+            <span class="muted" data-lang-key="policy_card3_hint">JB행정사, Ajou Univ., eLaw, HiKorea 가이드</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // CTA click → preserve utm + variant
-        function appendQuery(base) {
-          try { const u = new URL(base);
-            Object.entries(utm).forEach(([k,v]) => u.searchParams.set(k, v));
-            u.searchParams.set('variant', variant);
-            if (refParam) u.searchParams.set('ref', refParam);
-            return u.toString();
-          } catch { return base; }
-        }
-        document.getElementById('cta_primary').addEventListener('click', (ev) => {
-          window.dispatchEvent(mkEvent('cta_click', { id: 'hero_primary', variant, utm }));
-          const base = ev.currentTarget.getAttribute('data-target-a') || '#';
-          location.href = appendQuery(base);
-        });
-        document.getElementById('cta_primary_b').addEventListener('click', (ev) => {
-          window.dispatchEvent(mkEvent('cta_click', { id: 'hero_primary', variant, utm }));
-          const base = ev.currentTarget.getAttribute('data-target-b') || '#';
-          location.href = appendQuery(base);
-        });
+    <section id="content" class="section bg-light">
+      <div class="container">
+        <h2 class="section-title" data-lang-key="content_title">콘텐츠 & 실행 카드</h2>
+        <p class="section-subtitle" data-lang-key="content_subtitle">숏폼·카드뉴스·실행 카드가 매일 최신 정책과 연동됩니다.</p>
+        <div class="content-grid">
+          <div class="content-card">
+            <div class="pill-label" data-lang-key="content_card1_pill">오늘의 실행 카드</div>
+            <h3 data-lang-key="content_card1_title">Top5 체크리스트</h3>
+            <p data-lang-key="content_card1_desc">비자/근무/시험/생활/지역 매칭을 클릭형 카드로 정리.</p>
+            <a href="survey/index.html" class="link" data-lang-key="content_card1_link">바로 체험하기</a>
+          </div>
+          <div class="content-card">
+            <div class="pill-label" data-lang-key="content_card2_pill">정책 피드</div>
+            <h3 data-lang-key="content_card2_title">출입국 & 시험 변화</h3>
+            <p data-lang-key="content_card2_desc">D‑10 연장, 25h 외활허가, TOPIK 일정 등을 실시간 배너로 제공.</p>
+            <span class="muted" data-lang-key="content_card2_hint">하이코리아, TOPIK, 지역특화 공고 자동 크롤링</span>
+          </div>
+          <div class="content-card">
+            <div class="pill-label" data-lang-key="content_card3_pill">문서 라이브러리</div>
+            <h3 data-lang-key="content_card3_title">사례 기반 템플릿</h3>
+            <p data-lang-key="content_card3_desc">증빙 파일/업데이트 내역을 함께 고지해 검증 가능성을 높입니다.</p>
+            <span class="muted" data-lang-key="content_card3_hint">AI 초안 → 관리자 검수 → 사용자 배포</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // Prefill hidden UTM/variant on Netlify forms
-        function getCookie(name){ return ('; '+document.cookie).split('; '+name+'=').pop().split(';')[0]; }
-        function parseGaCid(){
-          try{
-            const g = getCookie('_ga');
-            if(!g) return '';
-            const parts = g.split('.');
-            if(parts.length>=4){ return parts[2]+'.'+parts[3]; }
-            return g;
-          }catch{ return ''; }
-        }
-        function refCode(){
-          const fromParam = refParam; if(fromParam) return fromParam;
-          const stored = localStorage.getItem('ref_code'); if(stored) return stored;
-          const cid = parseGaCid().replace(/[^A-Za-z0-9]/g,'').slice(0,16);
-          const rnd = Math.random().toString(36).slice(2,10);
-          const code = (cid||rnd).slice(0,8);
-          localStorage.setItem('ref_code', code);
-          return code;
-        }
-        function fillHidden(form) {
-          if (!form) return;
-          ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(k=>{
-            const el = form.querySelector(`input[name="${k}"]`);
-            if (el && qp.get(k)) el.value = qp.get(k);
-          });
-          const v = form.querySelector('input[name="variant"]'); if (v) v.value = variant;
-          const r = form.querySelector('input[name="referrer"]'); if (r) r.value = document.referrer;
-          const refEl = form.querySelector('input[name="ref"]'); if (refEl) refEl.value = refCode();
-          const cidEl = form.querySelector('input[name="ga_cid"]'); if (cidEl) cidEl.value = parseGaCid();
-        }
-        fillHidden(document.querySelector('form[name="pre_survey"]'));
-        fillHidden(document.querySelector('form[name="onboarding_survey"]'));
+    <section id="success" class="section">
+      <div class="container">
+        <h2 class="section-title" data-lang-key="success_title">실제 사용자 이야기</h2>
+        <p class="section-subtitle" data-lang-key="success_subtitle">VietKConnect를 통해 비자 전환 · 채용 · 정착을 이룬 사례.</p>
+        <div class="story-grid">
+          <div class="story-card">
+            <div class="story-header">
+              <img src="https://placehold.co/80x80/E2E8F0/4A5568?text=VN" alt="" />
+              <div>
+                <h4>Nguyen A.</h4>
+                <p data-lang-key="story1_role">D‑2 → D‑10 → E‑7</p>
+              </div>
+            </div>
+            <p data-lang-key="story1_content">“12주 로드맵과 고용사유서 템플릿 덕분에 회계 직무 오퍼를 지연 없이 승인받았어요.”</p>
+          </div>
+          <div class="story-card">
+            <div class="story-header">
+              <img src="https://placehold.co/80x80/E2E8F0/4A5568?text=KR" alt="" />
+              <div>
+                <h4>Tran B.</h4>
+                <p data-lang-key="story2_role">F‑2‑R 지역특화</p>
+              </div>
+            </div>
+            <p data-lang-key="story2_content">“부산·경남 기업 매칭 카드와 인터뷰 체크리스트로 지역특화 거주비자를 통과했습니다.”</p>
+          </div>
+          <div class="story-card">
+            <div class="story-header">
+              <img src="https://placehold.co/80x80/E2E8F0/4A5568?text=VN" alt="" />
+              <div>
+                <h4>Pham C.</h4>
+                <p data-lang-key="story3_role">알바 신고 & 주거</p>
+              </div>
+            </div>
+            <p data-lang-key="story3_content">“AI 반성문/신고서 자동작성으로 사기 피해를 빠르게 해소하고 주거 계약을 지켰어요.”</p>
+          </div>
+        </div>
+        <div class="text-center" style="margin-top: 32px;">
+          <a href="https://gfewkf.netlify.app/" target="_blank" rel="noreferrer" class="btn btn-secondary" data-lang-key="success_cta"><i class="fas fa-book-open"></i> VietKConnect 후기 더보기</a>
+        </div>
+      </div>
+    </section>
 
-        // Track form submit
-        function netlifyAjaxSubmit(form, thanksId){
-          if(!form) return;
-          form.addEventListener('submit', function(ev){
-            ev.preventDefault();
-            window.dispatchEvent(mkEvent('cta_click', { id: form.name + '_submit', variant, utm }));
-            // Build form data
-            const data = new FormData(form);
-            data.append('form-name', form.getAttribute('name'));
-            fetch('/', { method:'POST', body: data }).then(()=>{
-              const t = document.getElementById(thanksId); if(t) t.style.display='';
-              window.dispatchEvent(mkEvent('sign_up', { id: form.name, variant, utm }));
-              // scroll to Top5 after submit
-              const top = document.getElementById('top5'); if(top) top.scrollIntoView({behavior:'smooth'});
-              form.reset(); fillHidden(form); // keep hidden utm
-            }).catch(()=>{
-              const t = document.getElementById(thanksId); if(t) t.innerText='제출 처리 중 오류가 발생했습니다. 다시 시도해주세요.'; t.style.display='';
-            });
-          });
-        }
-        netlifyAjaxSubmit(document.getElementById('form-pre'),'pre-thanks');
-        netlifyAjaxSubmit(document.getElementById('form-onb'),'onb-thanks');
+    <section id="why" class="section bg-light">
+      <div class="container">
+        <h2 class="section-title" data-lang-key="why_title">왜 VietKConnect인가요?</h2>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <i class="fas fa-handshake"></i>
+            <h3 data-lang-key="feature1_title">검증된 신뢰</h3>
+            <p data-lang-key="feature1_desc">행정사·시니어 멘토·운영진이 모든 답변을 검수합니다.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-network-wired"></i>
+            <h3 data-lang-key="feature2_title">옴니채널</h3>
+            <p data-lang-key="feature2_desc">Facebook, TikTok, Email, Zalo, AMA가 동일 메시지로 연동됩니다.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-bolt"></i>
+            <h3 data-lang-key="feature3_title">AI + 사람 협업</h3>
+            <p data-lang-key="feature3_desc">AI가 초안을 만들고 전문가가 보완해 속도와 정확도를 동시에 달성.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // Build and copy referral link
-        const refInput = document.getElementById('ref_link');
-        const refBtn = document.getElementById('ref_copy');
-        if(refInput && refBtn){
-          const base = location.origin + location.pathname;
-          const code = refCode();
-          const url = new URL(base);
-          url.searchParams.set('ref', code);
-          // keep utm if present in current URL for share consistency
-          Object.entries(utm).forEach(([k,v])=>{ if(v) url.searchParams.set(k,v); });
-          url.searchParams.set('variant', el.dataset.variant || 'h1_a');
-          refInput.value = url.toString();
-          refBtn.addEventListener('click', async ()=>{
-            try{ await navigator.clipboard.writeText(refInput.value); window.dispatchEvent(mkEvent('cta_click',{id:'ref_copy',variant,utm})); refBtn.textContent='복사됨'; setTimeout(()=>refBtn.textContent='복사',1500);}catch{}
-          });
-        }
+    <section id="consultation" class="section consultation">
+      <div class="container consultation-container">
+        <div class="consultation-info">
+          <h2 data-lang-key="consult_title">VietKConnect 웹사이트</h2>
+          <p data-lang-key="consult_desc">정식 웹사이트(대시보드/실행 카드/커뮤니티)로 이동해 더 많은 기능을 체험하세요. 현재 베타 접속 링크는 곧 공개될 예정입니다.</p>
+          <div class="contact-details">
+            <p><i class="fas fa-envelope"></i> contact@vietkconnect.com</p>
+          </div>
+        </div>
+        <div class="consultation-form placeholder-box">
+          <p data-lang-key="site_placeholder_text">정식 웹사이트 URL이 공개되면 이 버튼을 통해 바로 이동할 수 있습니다.</p>
+          <a href="#" class="btn btn-primary btn-block js-site-link" data-site-url="" data-lang-key="site_placeholder_cta"><i class="fas fa-up-right-from-square"></i> 웹사이트 열기</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-        // Leaderboard loader
-        const lbWrap = document.getElementById('lb_wrap');
-        async function fetchText(u){ const r = await fetch(u, {cache:'no-store'}); if(!r.ok) throw new Error('load fail'); return await r.text(); }
-        function parseCSV(t){ const [h,...rows]=t.trim().split(/\r?\n/).map(l=>l.split(',')); return rows.map(c=>Object.fromEntries(c.map((v,i)=>[h[i],v]))); }
-        function renderLB(items){ if(!lbWrap) return; if(!items||!items.length){ lbWrap.innerHTML='<div class="muted">집계 데이터가 아직 없습니다.</div>'; return; }
-          const head = '<table class="lb"><thead><tr><th>순위</th><th>참가자</th><th>총점</th><th>초대</th><th>채택</th><th>활동일</th></tr></thead><tbody>';
-          const body = items.slice(0,20).map((it,idx)=>`<tr><td>${idx+1}</td><td>${it.user||it.nickname||'-'}</td><td>${it.score||it.total||0}</td><td>${it.invites||it.valid_invites||0}</td><td>${it.accepted||it.accepts||0}</td><td>${it.days||it.active_days||0}</td></tr>`).join('');
-          lbWrap.innerHTML = head+body+'</tbody></table>';
-        }
-        (async ()=>{
-          try{
-            const meta = document.querySelector('meta[name="leaderboard-url"]');
-            const url = (meta && meta.getAttribute('content')) || '/leaderboard.json';
-            const txt = await fetchText(url);
-            let items;
-            if(url.endsWith('.csv')){ items = parseCSV(txt); }
-            else { items = JSON.parse(txt); }
-            renderLB(items);
-          }catch(e){ if(lbWrap) lbWrap.innerHTML='<div class="muted">리더보드 연결 대기 중(관리자 설정 필요)</div>'; }
-        })();
-      })();
-    </script>
+  <footer class="footer">
+    <div class="container footer-content">
+      <p data-lang-key="footer_text">© VietKConnect. All rights reserved.</p>
+      <a href="survey/index.html" data-lang-key="footer_cards">실행 카드(설문) 버전 보기</a>
+    </div>
+  </footer>
 
-    <!-- Sticky CTA -->
-    <button class="cta sticky-cta" onclick="location.hash='#pre_survey'">지금 내 실행 카드 보기</button>
-
-  </body>
-  </html>
+  <script src="main.js"></script>
+</body>
+</html>
